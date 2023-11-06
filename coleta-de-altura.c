@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 #include<stdlib.h>
 #include<time.h>
@@ -7,17 +6,23 @@ int main(){
     float altura[5];
     float somaaltura,media,maioraltura,menoraltura;
     int i,qtde;
-    //PEGANDO AS ALTURAS, SOMA E A MEDIA
+    
+    //Iniciando o gerador de altura
+    srand(time(NULL));
+    
+    //Pegando a altura, a soma e media
+    somaaltura=0;
     for(int i=0;i<5;i++){
         printf("digite a altura: ");
-        scanf("%f",&altura[i]);
+        //Gera um valor aleatório entre 0.0 e 3.0
+        altura[i] = ((double)rand() / RAND_MAX) * 3.0;
         somaaltura=somaaltura+altura[i];
         qtde++;
         
     }
     media=somaaltura/qtde;
     
-    //MAIOR ALTURA
+    //Maior altura
     maioraltura=0;
     for(int i=0;i<5;i++){
         if(altura[i]>maioraltura){
@@ -25,7 +30,7 @@ int main(){
         }
     }
     
-    //MENOR ALTURA
+    //Menor altura
    menoraltura=altura[0];
    for(int i=1;i<5;i++){
        if(altura[i]< menoraltura){
@@ -33,7 +38,7 @@ int main(){
        }
    }
     
-    //ALTURAS INFERIOR A MÉDIA
+    //Contando as alturas inferiores a média
     int contmenor;
     for(i=0;i<5;i++){
         if(altura[i]<media){
@@ -41,11 +46,16 @@ int main(){
         }
         
     }
-    printf("soma = %f\n",somaaltura);
-    printf("media = %f\n",media);
-    printf("maior altura = %f\n",maioraltura);
-    printf("menor altura = %f\n",menoraltura);
-    printf("inferior a media= %d\n",contmenor);
+    //Mostrando as informações
+    printf("SOMA = %.2f\n",somaaltura);
+    printf("MÉDIA = %.2f\n",media);
+    printf("MAIOR ALTURA = %.2f\n",maioraltura);
+    printf("MENOR ALTURA = %.2f\n",menoraltura);
+    printf("ALTURA INFERIOR A MÉDIA = %d\n",contmenor);
+    
+    for(int i=0;i<5;i++){
+        printf("%.2f\n",altura[i]);
+    }
     
     return 0;
     
