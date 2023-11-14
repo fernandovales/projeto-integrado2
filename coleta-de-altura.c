@@ -10,12 +10,11 @@ int main(){
     //Iniciando o gerador de altura
     srand(time(NULL));
     
-    //Pegando a altura, a soma e media
+    //Pegando a altura, a soma e media das alturas
     somaaltura=0;
     for(int i=0;i<5;i++){
-        printf("digite a altura: ");
-        //Gera um valor aleatório entre 0.0 e 3.0
-        altura[i] = ((double)rand() / RAND_MAX) * 3.0;
+        //Gera um valor aleatório entre 1.0 e 3.0
+        altura[i] = ((float)rand() / RAND_MAX) * 3.0 + 1.0;
         somaaltura=somaaltura+altura[i];
         qtde++;
         
@@ -39,7 +38,7 @@ int main(){
    }
     
     //Contando as alturas inferiores a média
-    int contmenor;
+    int contmenor=0;
     for(i=0;i<5;i++){
         if(altura[i]<media){
             contmenor++;
@@ -47,12 +46,13 @@ int main(){
         
     }
     //Mostrando as informações
-    printf("SOMA = %.2f\n",somaaltura);
-    printf("MÉDIA = %.2f\n",media);
-    printf("MAIOR ALTURA = %.2f\n",maioraltura);
-    printf("MENOR ALTURA = %.2f\n",menoraltura);
-    printf("ALTURA INFERIOR A MÉDIA = %d\n",contmenor);
+    printf("A SOMA DAS ALTURAS = %.2f\n",somaaltura);
+    printf("A MÉDIA DAS ALTURAS = %.2f\n",media);
+    printf("A MAIOR ALTURA = %.2f\n",maioraltura);
+    printf("A MENOR ALTURA = %.2f\n",menoraltura);
+    printf("QUANTAS ALTURAS INFERIOR A MÉDIA = %d\n",contmenor);
     
+    //APENAS PARA MOSTRAR AS ALTURAS
     for(int i=0;i<5;i++){
         printf("%.2f\n",altura[i]);
     }
